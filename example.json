@@ -1,0 +1,6 @@
+{
+    "foo": "foobar",
+    "bar": {
+      "isBar": true
+    }
+}
