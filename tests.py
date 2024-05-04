@@ -4,6 +4,9 @@ import json
 
 # Test case class
 class TestEncryption(unittest.TestCase):
+    """
+    Testing encryption
+    """
 
     def compare_actual_expected(self, input_data, expected_output):
         """
@@ -20,13 +23,13 @@ class TestEncryption(unittest.TestCase):
         """
         Encrypting a simple payload.
         """
-        self.compare_actual_expected("example.json", "expected_example.json")
-    
+        self.compare_actual_expected("example.json", "expected_example.json")  
     def test_encrypt_complex_playload(self):
         """
         Encrypting a complex payload.
         """
         self.compare_actual_expected("test.json","expected_test.json")
+
 
 
 if __name__ == '__main__':
