@@ -1,24 +1,9 @@
 {
     "string": "Hello, world!",
-    "number": 42,
-    "boolean": true,
-    "array": [1, 2, 3],
-    "object": {
-      "key1": "value1",
-      "key2": "value2"
-    },
-    "nested_objects": {
-      "object1": {
-        "name": "Alice",
-        "age": 30,
-        "is_student": false
-      },
-      "object2": {
-        "name": "Bob",
-        "age": 25,
-        "is_student": true
-      }
-    },
-    "mixed_array": ["string", 42, true, [1, 2, 3], {"key": "value"}]
+    "number": "42",
+    "boolean": "True",
+    "array": "[1, 2, 3]",
+    "object": "{'key1': 'value1', 'key2': 'value2'}",
+    "mixed_array": "['string', 42, True, None, [1, 2, 3], {'key': 'value'}]"
   }
   

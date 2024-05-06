@@ -27,9 +27,10 @@ def decrypt_object(obj):
 def decrypt_dict(payload: dict)->dict:
     """
     Detect encrypted objects in a dictionary and decrypt them.
-    Will return a dictionary of all plain text elements in dict.
+    Will return a dictionary of all plaintext elements in dict.
     """
     for field in payload:
+        payload[field] = str(payload[field])
         try:
             decoded_data = base64.b64decode(payload[field]).decode('utf-8')
             payload[field]=decoded_data
