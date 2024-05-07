@@ -1,0 +1,183 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Encryption and Signature API",
+    "description": "API for encrypting, decrypting, signing, and verifying data payloads.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/encrypt": {
+      "post": {
+        "summary": "Encrypt data",
+        "description": "Encrypts a JSON payload with encrypted values.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  },
+                  "bar": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+        }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful encryption",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    },
+                    "bar": {
+                      "type":"string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/decrypt": {
+      "post": {
+        "summary": "Decrypt data",
+        "description": "Decrypts a JSON payload with decrypted values.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  },
+                  "bar": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful decryption",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    },
+                    "bar": {
+                      "type":"object"
+                    }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    }
+    },
+    "/sign": {
+      "post": {
+        "summary": "Sign data",
+        "description": "Signs a JSON payload and returns the signature.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  },
+                  "bar": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful signing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "signature": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/verify": {
+      "post": {
+        "summary": "Verify signature",
+        "description": "Verifies the signature of a JSON payload.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object"
+                  }
+                },
+                "required": ["signature", "data"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Valid signature"
+          },
+          "400": {
+            "description": "Bad request or invalid signature"
+          }
+        }
+      }
+    }
+  }
+}
