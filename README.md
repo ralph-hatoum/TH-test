@@ -22,6 +22,8 @@ Once the server is started, a documentation is available :
 localhost:8000/docs
 ````
 
+Setting the env variable `SECRET_KEY` will allow to customize the private key used for signing. There is a dummy value by default.
+
 # Assumptions made
 
 ## Decrypt endpoint
