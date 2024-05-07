@@ -176,6 +176,9 @@ class TestSignVerify(unittest.TestCase):
         self.assertEqual(204,response.status_code)
 
 class WrongRequests(unittest.TestCase):
+    """
+    Sending requests that are not json and do not have required fields.
+    """
     payload_not_json = "aaa"
 
     def test_send_payload_not_json_encrypt(self):
