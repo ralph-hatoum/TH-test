@@ -4,6 +4,10 @@ Starting the server :
 ```
 uvicorn main:app --port 8000 --reload
 ````
+If any requirements are missing, use : 
+````
+pip install -r requirements.txt
+````
 
 Running unit tests :
 ````
