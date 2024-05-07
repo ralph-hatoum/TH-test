@@ -15,7 +15,7 @@
     "/encrypt": {
       "post": {
         "summary": "Encrypt data",
-        "description": "Encrypts a JSON payload with encrypted values.",
+        "description": "This endpoint expects a json payload, and will return a payload with the same fields, but with encrypted values.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -61,7 +61,7 @@
     "/decrypt": {
       "post": {
         "summary": "Decrypt data",
-        "description": "Decrypts a JSON payload with decrypted values.",
+        "description": "This endpint expects a json payload, and will return a payload with the same fields, but with decrypted values, if decryption is possible. Limitations : if a plaintext string happens to fit what an encrypted string looks like, it will be decrypted. For example, with base64, any string that fits the regex ^[-A-Za-z0-9+/]*={0,3}$ will be decrypted. Also, all elements returned in the decrypted payload will be returned as strings.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -107,7 +107,7 @@
     "/sign": {
       "post": {
         "summary": "Sign data",
-        "description": "Signs a JSON payload and returns the signature.",
+        "description": "Signs a JSON payload and returns the signature. Important : the decrypt function is called on the payload before signing, so similar limitations apply : if a plaintext string happens to fit what an encrypted string looks like, it will be decrypted. For example, with base64, any string that fits the regex ^[-A-Za-z0-9+/]*={0,3}$ will be decrypted.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -150,7 +150,7 @@
     "/verify": {
       "post": {
         "summary": "Verify signature",
-        "description": "Verifies the signature of a JSON payload.",
+        "description": "Verifies the signature of a JSON payload.     The payload needs to have a signature field and a data field. If these are not provided, the request will not be processed. Succesful signature will return a 204 status code, other cases will be a 400.",
         "requestBody": {
           "content": {
             "application/json": {
